@@ -1,10 +1,12 @@
-# codezm.workflows.timestamp_convert 
+Alfred-codezm-workflows-timestamp-convert
+=========================================
+
 ## 时间戳转换工具
 默认快捷键`tc`，查看转换结果。
 
 ### 效果
 
-![](codezm.workflows.timestamp_convert.png)
+![](demo.png)
 
 ### 下载
 
