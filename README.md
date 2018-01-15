@@ -10,7 +10,7 @@ Alfred-codezm-workflows-timestamp-convert
 
 ### 下载
 
-[点击下载](https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert/releases/download/v2.0.0/Alfred-codezm-workflows-timestamp-convert.alfredworkflow)
+[点击下载](https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert/releases/download/v2.1.0/Alfred-codezm-workflows-timestamp-convert.alfredworkflow)
 
 ### 安装
 
