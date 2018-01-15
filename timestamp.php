@@ -9,14 +9,20 @@
 
 date_default_timezone_set('PRC');
 require_once 'workflows.php';
-$w = new Workflows();
+$w = new Workflows('Alfred-codezm-workflows-timestamp-convert');
 $ico_png = 'icon.png';
 if(isset($argv[1])) {
     $query = urldecode($argv[1]);
 }
 
 if(empty($query)) {
-    $w->result('等待用户输入', '', '获取当前时间 n或now', '请输入时间戳或日期格式', $ico_png);
+    $query = time();
+    $date = date('Y-m-d', $query);
+    $time = date('Y-m-d H:i:s', $query);
+
+    $w->result(0, $query, $query, 'Timestamp - 时间戳' . $originQuery, $ico_png);
+    $w->result(1, $date, $date, 'Date - 日期', '');
+    $w->result(2, $time, $time, 'Date/time - 日期时间', '');
     echo $w->toxml();
     exit;
 }
@@ -29,7 +35,7 @@ if(in_array($query, array('n', 'now'))) {
     $query = time();
 }
 if(!strtotime($query) && strlen(intval($query)) != 10) {
-    $w->result('用户输入有误', '', '获取当前时间 n或now', '请输入时间戳或日期格式', $ico_png);
+    $w->result('用户输入有误', '', '请输入时间戳或日期格式', '日期/时间字符串 - Power by PHP strtotime Date/Time 函数.', $ico_png, 'no', '');
     echo $w->toxml();
     exit;
 }
@@ -37,7 +43,7 @@ if(!strtotime($query) && strlen(intval($query)) != 10) {
 $query = preg_match('/^\d{10}$/', $query) ? $query : strtotime($query);
 $date = date('Y-m-d', $query);
 $time = date('Y-m-d H:i:s', $query);
-$w->result('timestamp', $query, $query, '时间戳' . $originQuery, $ico_png);
-$w->result('date', $date, $date, '日期', '');
-$w->result('time', $time, $time, '日期时间', '');
+$w->result(0, $query, $query, 'Timestamp - 时间戳' . $originQuery, $ico_png);
+$w->result(1, $date, $date, 'Date - 日期', '');
+$w->result(2, $time, $time, 'Date/time - 日期时间', '');
 echo $w->toxml();
