@@ -73,7 +73,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>35</integer>
+				<integer>34</integer>
 				<key>keyword</key>
 				<string>tc</string>
 				<key>queuedelaycustom</key>
@@ -127,7 +127,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>默认快捷键 `tc`, 查看当前时间格式
+	<string>默认快捷键 `tc`, 查看当前时间格式展示
 
     - 展示当天时间信息 `tc n` 或者 `tc now` 
     - 当然你也可以使用 `tc tomorrow` `tc yesterday`
