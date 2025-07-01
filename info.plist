@@ -3,11 +3,48 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>Alfred-codezm-workflows-timestamp-convert</string>
-	<key>category</key>
-	<string>Tools</string>
+	<string></string>
 	<key>connections</key>
 	<dict>
+		<key>1A986BB6-DACE-4FB1-BF7A-47BB7A2A3522</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>87C919FF-742B-4800-B9C4-170D668A6739</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>48962F6D-25BA-4E88-9518-0B0AA27B2F0B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>96584E52-BA89-49BD-9561-B3F535B928D8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>96584E52-BA89-49BD-9561-B3F535B928D8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A986BB6-DACE-4FB1-BF7A-47BB7A2A3522</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>D701289F-6669-44F0-88B6-1A72807B8353</key>
 		<array>
 			<dict>
@@ -39,7 +76,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>TimeStamp Convert v2.0.0</string>
+	<string>TimeStamp Convert v3.0.0</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -70,6 +107,12 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -87,7 +130,7 @@
 				<key>runningsubtext</key>
 				<string>转换中...</string>
 				<key>script</key>
-				<string>/usr/bin/php timestamp.php "{query}"</string>
+				<string>$SCRIPT_PATH "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -106,7 +149,7 @@
 			<key>uid</key>
 			<string>D701289F-6669-44F0-88B6-1A72807B8353</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -115,6 +158,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -123,7 +168,28 @@
 			<key>uid</key>
 			<string>1A986BB6-DACE-4FB1-BF7A-47BB7A2A3522</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>已复制到剪贴板</string>
+				<key>title</key>
+				<string>复制成功</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>87C919FF-742B-4800-B9C4-170D668A6739</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -139,11 +205,9 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>-1</integer>
+				<integer>0</integer>
 				<key>hotmod</key>
-				<integer>1048576</integer>
-				<key>hotstring</key>
-				<string>double tap</string>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -158,16 +222,102 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>base64decode</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>base64 解码</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>48962F6D-25BA-4E88-9518-0B0AA27B2F0B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo $1 | base64 --decode</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>96584E52-BA89-49BD-9561-B3F535B928D8</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>1</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>base64decode </string>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>11</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>B</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>07CFA669-71FF-453E-A5A0-3A0F2961E50F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>默认快捷键 `t`, 查看当前时间格式展示
-
-    - 展示当天时间信息 `t n` 或者 `t now` 
-    - 当然你也可以使用 `t tomorrow` `t yesterday`
+支持 PHP 与 Python 脚本，默认使用 Python 脚本。切换方式：修改 SCRIPT_PATH 变量。比如 PHP 脚本：/usr/bin/php timestamp.php
     - 将时间戳转换成日期格式, 反之亦然 `t 1495276608` `t 2017-05-20 18:52:46`
-    - 选中某一项转换结果键入 `Enter` 即可复制, `Shift + Enter` 将发音.</string>
+    - 选中某一项转换结果键入 `Enter` 即可复制, `Shift + Enter` 将发音.
+
+PHP 脚本独有，详情见：https://www.php.net/manual/en/function.strtotime.php
+  - 展示当天时间信息 `t n` 或者 `t now` 
+  - 当然你也可以使用 `t tomorrow` `t yesterday`</string>
 	<key>uidata</key>
 	<dict>
+		<key>07CFA669-71FF-453E-A5A0-3A0F2961E50F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>370</integer>
+		</dict>
 		<key>1A57794D-FEAC-492C-BA57-CCBA6335D442</key>
 		<dict>
 			<key>xpos</key>
@@ -185,20 +335,50 @@
 		<key>1E9A0D0C-C2AE-4ECD-B6FC-9DFC3A1CBCAA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>270</integer>
 			<key>ypos</key>
 			<integer>220</integer>
+		</dict>
+		<key>48962F6D-25BA-4E88-9518-0B0AA27B2F0B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>275</integer>
+			<key>ypos</key>
+			<integer>365</integer>
+		</dict>
+		<key>87C919FF-742B-4800-B9C4-170D668A6739</key>
+		<dict>
+			<key>xpos</key>
+			<integer>885</integer>
+			<key>ypos</key>
+			<integer>210</integer>
+		</dict>
+		<key>96584E52-BA89-49BD-9561-B3F535B928D8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>460</integer>
+			<key>ypos</key>
+			<integer>365</integer>
 		</dict>
 		<key>D701289F-6669-44F0-88B6-1A72807B8353</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>270</integer>
 			<key>ypos</key>
 			<integer>80</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>SCRIPT_PATH</key>
+		<string>/usr/bin/python3 timestamp.py</string>
+		<key>TIME_ZONE</key>
+		<string>Asia/Shanghai</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>2.0.0</string>
+	<string>3.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert</string>
 </dict>

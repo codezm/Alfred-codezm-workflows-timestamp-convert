@@ -12,11 +12,15 @@ $iconPngUrl = 'icon.png';
 if(isset($argv[1])) {
     $query = urldecode($argv[1]);
 }
+//$microTime = round(microtime(true) * 1000);
 
 if(empty($query)) {
-    $query = time();
+    list($usec, $query) = explode(" ", microtime());
+    //$query = time();
     $date = date('Y-m-d', $query);
     $time = date('Y-m-d H:i:s', $query);
+    $usec = substr($usec, 2, 3);
+    $microTime = $query . $usec;
 
     $outputs = [
         'items' => [
@@ -46,7 +50,34 @@ if(empty($query)) {
                     'path' => $iconPngUrl
                 ], 
                 'valid' => true,
-            ]
+            ],
+            [
+                'arg' => strtotime($date), 
+                'title' => strtotime($date), 
+                'subtitle' => 'Timestamp - 今日凌晨时间戳', 
+                'icon' => [
+                    'path' => $iconPngUrl
+                ], 
+                'valid' => true,
+            ], 
+            [
+                'arg' => $time . '.' . $usec, 
+                'title' => $time . '.' . $usec, 
+                'subtitle' => 'Date/time - 日期时间（微秒）', 
+                'icon' => [
+                    'path' => $iconPngUrl
+                ], 
+                'valid' => true,
+            ],
+            [
+                'arg' => $microTime, 
+                'title' => $microTime, 
+                'subtitle' => 'Timestamp - 当前13位时间戳', 
+                'icon' => [
+                    'path' => $iconPngUrl
+                ], 
+                'valid' => true,
+            ],
         ]
     ];
 
@@ -61,7 +92,7 @@ $query = trim($query);
 if(in_array($query, array('n', 'now'))) {
     $query = time();
 }
-if(!strtotime($query) && strlen(intval($query)) != 10) {
+if(!strtotime($query) && (strlen(intval($query)) != 10 && strlen(intval($query)) != 13)) {
     $outputs = [
         'items' => [
             [
@@ -80,8 +111,13 @@ if(!strtotime($query) && strlen(intval($query)) != 10) {
     echo json_encode($outputs);
     exit;
 }
-
-$query = preg_match('/^\d{10}$/', $query) ? $query : strtotime($query);
+$microTime = '';
+if (preg_match('/^\d{13}$/', $query)) {
+    $microTime = '.' . substr($query, -3);
+    $query = substr($query, 0, 10);
+} else {
+    $query = preg_match('/^\d{10}$/', $query) ? $query : strtotime($query);
+}
 $date = date('Y-m-d', $query);
 $time = date('Y-m-d H:i:s', $query);
 
@@ -106,9 +142,18 @@ $outputs = [
             'valid' => true,
         ], 
         [
-            'arg' => $time, 
-            'title' => $time, 
+            'arg' => $time . $microTime, 
+            'title' => $time . $microTime, 
             'subtitle' => 'Date/time - 日期时间', 
+            'icon' => [
+                'path' => $iconPngUrl
+            ], 
+            'valid' => true,
+        ],
+        [
+            'arg' => strtotime($date), 
+            'title' => strtotime($date), 
+            'subtitle' => 'Timestamp - 今日凌晨时间戳', 
             'icon' => [
                 'path' => $iconPngUrl
             ], 
